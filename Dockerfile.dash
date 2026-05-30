@@ -1,0 +1,28 @@
+FROM python:3.11-slim
+
+WORKDIR /app
+
+ENV PYTHONPATH=/app \
+    PYTHONDONTWRITEBYTECODE=1 \
+    PYTHONUNBUFFERED=1
+
+RUN apt-get update && apt-get install -y --no-install-recommends \
+        libgomp1 \
+    && rm -rf /var/lib/apt/lists/*
+
+COPY requirements-dash.txt .
+RUN pip install --no-cache-dir -r requirements-dash.txt
+
+COPY modules/ ./modules/
+COPY data/processed/ ./data/processed/
+COPY data/synthetic/ ./data/synthetic/
+
+EXPOSE 8050
+
+# 1 worker suffit pour le tier gratuit (512 MB RAM)
+# --preload charge les données une seule fois avant de forker
+CMD ["sh", "-c", "gunicorn modules.m6_dashboard.app:server \
+    --bind 0.0.0.0:${PORT:-8050} \
+    --workers 1 \
+    --timeout 120 \
+    --preload"]

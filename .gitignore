@@ -1,0 +1,73 @@
+# ── Secrets & credentials ─────────────────────────────────────────────────────
+.env
+.env.local
+.env.*.local
+*.key
+*.pem
+secrets/
+
+# ── Python ────────────────────────────────────────────────────────────────────
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+.Python
+*.egg-info/
+dist/
+build/
+*.egg
+.eggs/
+
+# ── Virtual environments ───────────────────────────────────────────────────────
+venv/
+.venv/
+env/
+ENV/
+
+# ── Testing & coverage ────────────────────────────────────────────────────────
+.pytest_cache/
+.coverage
+htmlcov/
+coverage.xml
+*.cover
+
+# ── ML experiments ────────────────────────────────────────────────────────────
+mlruns/
+mlartifacts/
+.dvc/tmp/
+*.dvc
+
+# ── Databases locales ─────────────────────────────────────────────────────────
+*.db
+*.sqlite
+*.sqlite3
+
+# ── IDE & outils ──────────────────────────────────────────────────────────────
+.vscode/settings.json
+.idea/
+*.swp
+*.swo
+.DS_Store
+Thumbs.db
+
+# ── Claude Code (outils de développement internes) ────────────────────────────
+.claude/
+.agents/
+
+# ── Logs ──────────────────────────────────────────────────────────────────────
+*.log
+logs/
+
+# ── Docker volumes ────────────────────────────────────────────────────────────
+pgdata/
+
+# ── Données brutes & rapports ─────────────────────────────────────────────────
+# Les parquets synthétiques (data/processed/, data/synthetic/) sont versionnés.
+# Les données brutes réelles et les rapports générés ne le sont pas.
+data/raw/*
+data/external/*
+data/processed/charts/
+data/processed/figures/
+reports/*.html
+reports/*.pdf
+modules/data/

@@ -1,0 +1,23 @@
+services:
+  # ── API FastAPI ──────────────────────────────────────────────────────────────
+  # Render injecte $PORT automatiquement — les Dockerfiles utilisent ${PORT:-8000}
+  - type: web
+    name: lubricants-api
+    runtime: docker
+    dockerfilePath: ./Dockerfile.api
+    plan: free
+    healthCheckPath: /
+    envVars:
+      - key: APP_ENV
+        value: production
+
+  # ── Dashboard Dash ───────────────────────────────────────────────────────────
+  - type: web
+    name: lubricants-dash
+    runtime: docker
+    dockerfilePath: ./Dockerfile.dash
+    plan: free
+    healthCheckPath: /
+    envVars:
+      - key: APP_ENV
+        value: production
