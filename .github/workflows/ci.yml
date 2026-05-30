@@ -22,13 +22,14 @@ jobs:
           cache: pip
           cache-dependency-path: requirements-api.txt
 
-      - name: Install runtime deps (slim — sans ML)
+      - name: Install runtime deps (slim — sans TensorFlow/PyTorch)
         run: |
           pip install --upgrade pip
           pip install \
             pandas==2.2.0 \
             numpy==1.26.4 \
             pyarrow==15.0.0 \
+            scikit-learn==1.4.1.post1 \
             fastapi==0.110.0 \
             uvicorn==0.27.1 \
             pydantic==2.6.1 \
