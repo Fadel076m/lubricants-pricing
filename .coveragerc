@@ -1,0 +1,14 @@
+[run]
+omit =
+    */visualizations.py
+    */run_m?.py
+    */run_m??.py
+    */__pycache__/*
+    */lstm_model.py
+    */prophet_model.py
+    */xgboost_model.py
+
+[report]
+exclude_lines =
+    pragma: no cover
+    if __name__ == .__main__.:

@@ -53,7 +53,7 @@ def compute_pi_scalar(
         nsp_cible = nsp
     else:
         nsp_cible = cogs_new / denominator
-        pi_requis = max(0.0, (nsp_cible / nsp) - 1)
+        pi_requis = max(0.0, (nsp_cible / nsp) - 1) if nsp > 0 else 0.0
 
     return {
         "marge_avant":    round(marge_avant, 4),
