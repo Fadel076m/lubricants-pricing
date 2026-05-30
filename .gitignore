@@ -54,6 +54,10 @@ Thumbs.db
 .claude/
 .agents/
 
+# ── Fichiers de session de travail (privés) ───────────────────────────────────
+ANTIGRAVITY_PROMPT.md
+CONTEXT.md
+
 # ── Logs ──────────────────────────────────────────────────────────────────────
 *.log
 logs/
